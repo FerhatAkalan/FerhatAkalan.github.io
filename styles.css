@@ -1,0 +1,163 @@
+/* styles.css */
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #FFD700;
+}
+
+.section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section h2 {
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-item {
+    border: 1px solid #ddd;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.portfolio-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.portfolio-item p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.technologies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.technology-item {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-radius: 50%; /* Daire şekline getiriyoruz */
+    display: flex;
+    justify-content: center; /* Yatayda ortalama */
+    align-items: center; /* Dikeyde ortalama */
+    position: relative; /* Pozisyonu relative yapıyoruz */
+}
+
+.technology-item img {
+    max-width: 100%; /* Logo en fazla kutunun genişliği kadar olacak şekilde ayarlanıyor */
+    max-height: 100%; /* Logo en fazla kutunun yüksekliği kadar olacak şekilde ayarlanıyor */
+    position: absolute; /* Logo, kutunun içinde pozisyonlanacak */
+    top: 50%; /* Yukarıdan aşağıya konumunu belirliyoruz */
+    left: 50%; /* Soldan sağa konumunu belirliyoruz */
+    transform: translate(-50%, -50%); /* Logo, kendisinin yarısı kadar sola ve yukarıya kaydırılıyor, böylece tam ortaya gelir */
+}
+
+.technology-item:hover {
+    transform: scale(1.1);
+}
+
+
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1.1em;
+}
+
+.social-icons {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-icons li {
+    margin: 0 10px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5em;
+}
