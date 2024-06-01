@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const portfolioGrid = document.querySelector(".portfolio-grid");
             data.forEach(repo => {
                 const portfolioItem = document.createElement("div");
-                portfolioItem.classList.add("portfolio-item","col-md-3");
+                portfolioItem.classList.add("portfolio-item", "col-md-3");
+                portfolioItem.style.cursor = "pointer"; // Cursor'ı işaretçi yap
 
                 const img = document.createElement("img");
                 img.src = `./images/19198663.jpg`;
@@ -16,6 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const p = document.createElement("p");
                 p.textContent = repo.description || "No description provided.";
+
+                // Her portfolioItem'a bir tıklama olayı ekle
+                portfolioItem.addEventListener("click", function() {
+                    window.open(repo.html_url, "_blank"); // Projeye tıklandığında GitHub proje sayfasını yeni sekmede aç
+                });
 
                 portfolioItem.appendChild(img);
                 portfolioItem.appendChild(h3);
