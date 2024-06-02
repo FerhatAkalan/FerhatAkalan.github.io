@@ -75,11 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 function getImageForRepo(repoName) {
     const imageMap = {
-        "GulgezginGame": "./images/GameApp.jpg",
-        "Social-Media-App-Project": "./images/SocialApp.jpg",
-        "School-Management-Project": "./images/SchoolApp.jpg",
-        "BlogProject": "./images/BlogProject.jpg",
-        "TensorflowCarAnalysis": "./images/default.jpg",
+        "GulgezginGame": "./images/blue/GameApp.jpg",
+        "Social-Media-App-Project": "./images/blue/SocialApp.jpg",
+        "School-Management-Project": "./images/blue/SchoolApp.jpg",
+        "BlogProject": "./images/blue/BlogApp.jpg",
+        "TensorflowCarAnalysis": "./images/blue/MachineLearning.jpg",
+        "SpringAppProject": "./images/blue/SpringApp.jpg",
     };
     return imageMap.hasOwnProperty(repoName) ? imageMap[repoName] : "./images/default.jpg";
 }

@@ -1,6 +1,15 @@
 /* styles.css */
 
 /* Reset styles */
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
 * {
     margin: 0;
     padding: 0;
@@ -15,6 +24,7 @@
 }
 
 body {
+    animation: fade-in 1s ease-in-out; /* Animasyonu kullanmak için */
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
     color: #333;
@@ -63,8 +73,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #FFD700;
-    transform: translateY(-3px);
+    color: #FFD700 !important;
+    transform: translateY(-5px);
 }
 
 .section {
@@ -187,4 +197,120 @@ footer {
 
 footer p {
     font-size: 1.1em;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline-item {
+    margin-bottom: 50px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: #ffff;
+    border-radius: 10px;
+    border-left: 5px solid #007bff;
+}
+
+.job-title {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.company {
+    color: #555;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.duration {
+    color: #777;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.responsibilities {
+    margin-left: 20px;
+}
+
+.responsibilities li {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+    color: #333;
+}
+/* Yeni CSS Kodları */
+
+.education-list {
+    display: grid;
+    justify-content: center;
+}
+
+.education-item {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column; /* İçeriğin sıralı olarak gelmesini sağla */
+    align-items: center;
+    text-align: center; /* Metinleri ortala */
+    text-decoration: none;
+    cursor: pointer;
+}
+.education-item a {
+    text-decoration: none; /* Remove default underline for link */
+    color: inherit; /* Inherit text color from parent */
+    width: 100%; /* Expand link to fill parent */
+    height: 100%; /* Expand link to fill parent */
+    display: block; /* Ensure the link takes up entire space */
+}
+
+.education-logo {
+    margin-bottom: 20px; /* Logo ile başlık arasındaki boşluğu artır */
+}
+
+.education-logo img {
+    max-width: 100px;
+    height: auto;
+}
+
+.degree-title {
+    color: #01204E;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.institution {
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.duration {
+    color: #777;
+    font-size: 1em;
+    margin-bottom: 20px; /* Tarih ile alt kısım arasındaki boşluğu artır */
+}
+
+.education-item:hover {
+    transform: translateY(-5px);
 }
