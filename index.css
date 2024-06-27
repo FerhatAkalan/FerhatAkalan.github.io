@@ -221,13 +221,13 @@ footer p {
 }
 
 .job-title {
-    color: #333;
+    color: #01204E;
     font-size: 1.5em;
     margin-bottom: 10px;
 }
 
 .company {
-    color: #555;
+    color: #666;
     font-size: 1.2em;
     margin-bottom: 5px;
 }
@@ -238,11 +238,7 @@ footer p {
     margin-bottom: 10px;
 }
 
-.responsibilities {
-    margin-left: 20px;
-}
-
-.responsibilities li {
+.responsibilities p {
     color: #666;
     font-size: 0.9em;
     margin-bottom: 5px;
@@ -255,7 +251,6 @@ footer p {
     color: #333;
 }
 
-/* New CSS Codes */
 
 /* Education styles */
 .education-list {
