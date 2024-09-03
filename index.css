@@ -303,6 +303,11 @@ footer p {
     font-size: 1.2em;
     margin-bottom: 5px;
 }
+.ranked {
+    color: #666;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
 
 .duration {
     color: #777;
