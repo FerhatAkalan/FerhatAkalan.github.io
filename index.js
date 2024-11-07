@@ -98,3 +98,39 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+// Navbar toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarNav = document.querySelector('#navbarNav');
+    
+    navbarToggler.addEventListener('click', function(e) {
+        e.stopPropagation(); // Event bubbling'i durdur
+        navbarNav.classList.toggle('show');
+    });
+
+    // Menü dışına tıklandığında menüyü kapat
+    document.addEventListener('click', function(event) {
+        const isClickInside = navbarNav.contains(event.target) || navbarToggler.contains(event.target);
+        if (!isClickInside && navbarNav.classList.contains('show')) {
+            navbarNav.classList.remove('show');
+        }
+    });
+
+    // Link tıklamalarında menüyü kapat
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 992) { // Sadece mobil görünümde
+                navbarNav.classList.remove('show');
+            }
+        });
+    });
+
+    // Scroll event listener ekle
+    window.addEventListener('scroll', function() {
+        if (window.innerWidth <= 992 && navbarNav.classList.contains('show')) {
+            navbarNav.classList.remove('show');
+        }
+    });
+});

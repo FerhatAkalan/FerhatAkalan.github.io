@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ferhat Akalan Portfolio</title>
     <meta name="description" content="Ferhat Akalan'ın resmi portföy sitesi. Bilgisayar mühendisliği, yazılım geliştirme ve projeleri hakkında bilgi edinin.">
     <meta name="keywords" content="Ferhat Akalan, Bilgisayar Mühendisi, Yazılım Geliştirici, Projeler, Teknolojiler, Deneyimler, Eğitim">
@@ -15,26 +15,46 @@
 </head>
 
 <body>
-    <header class="py-4">
-        <div class="container">
-            <h1 class="text-white text-center">Ferhat Akalan</h1>
-            <br>
-            <h4 class="text-white text-center">Computer Engineer & Sofware Developer</h4>
-            <br>    
-            <nav class="text-center">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item"><a class="nav-link text-white" href="#about">About me</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#technologies">Technologies</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#experience">Experiences</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#education">Education</a></li>
+    <!-- ... existing code ... -->
+<header class="py-3">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <!-- Logo/Name section -->
+            <div class="header-brand">
+                <a href="#" class="text-decoration-none">
+                    <span class="logo-text">
+                        <span class="bracket">&lt;</span>Ferhat Akalan<span class="bracket">&gt;</span>
+                    </span>
+                </a>
+            </div>
+            
+            <!-- Hamburger Menu Button -->
+            <button class="navbar-toggler d-lg-none" type="button">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+            
+            <!-- Navigation -->
+            <nav id="navbarNav" class="d-none d-lg-block">
+                <ul class="nav">
+                    <div class="developer-title">
+                        <span>Computer Engineer & Software Developer</span>
+                    </div>
+                    <li class="nav-item"><a class="nav-link" href="#about">About me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#technologies">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experiences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://medium.com/@ferhatakalan">Blog</a></li>
                 </ul>
             </nav>
         </div>
-    </header>
+    </div>
+</header>
+<!-- ... existing code ... -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="text-center">About me</h2>
+            <h2 class="section-title mt-5">About me</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <p>Hello, my name is Ferhat Akalan. I graduated from Giresun University Computer Engineering Department as the second in my department. My passion for computer science and technology drives me to stay up to date with the latest developments in the industry and pursue a career in this field.</p>
@@ -49,7 +69,7 @@
     </section>
     <section id="projects" class="section bg-light">
         <div class="container">
-            <h2 class="text-center">My Github Public Projects</h2>
+            <h2 class="section-title text-center">My Github Public Projects</h2>
             <div class="portfolio-grid row justify-content-center">
                 <!-- GitHub projeleri buraya gelecek -->
             </div>
@@ -60,7 +80,7 @@
     </section>
     <section id="technologies" class="section">
         <div class="container">
-            <h2 class="text-center">Languages, Frameworks, and Tools</h2>
+            <h2 class="section-title text-center">Languages, Frameworks, and Tools</h2>
             <div class="row justify-content-center">
                 <div class="languages">
                     <div class="technologies-grid">
@@ -141,7 +161,28 @@
             </div>
         </div>
     </section>
-    <section id="experience" class="section bg-light">
+    
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements-section">
+        <div class="container">
+          <h2 class="section-title">Achievements</h2>
+          <div class="achievements-grid">
+            <div class="achievement-card">
+            <div class="education-logo">
+                    <img src="./images/Teknofest_logo (1).png" alt="University Logo">
+            </div>
+              <div class="achievement-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <h3>TEKNOFEST 2024 Winner</h3>
+              <p>University Students Research Projects "Smart Cities and Transportation" Category 🥇</p>
+              <p>Turkey's Biggest Technology Competition</p>
+              <p class="achievement-year">2024</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    <section id="experience" class="section ">
         <div class="container">
             <h2 class="section-title">Experience</h2>
             <div class="experience">
@@ -158,7 +199,7 @@
             </div>
         </div>
     </section>
-    <section id="education" class="section">
+    <section id="education" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Education</h2>
             <div class="education-list">
@@ -193,13 +234,30 @@
                             </a>
                         </div>
                     </div>
+                    <div class="col">
+                        <div class="education-item equal-height-card">
+                            <a href="https://btu.edu.tr/" target="_blank" rel="noopener noreferrer">
+                                <div class="education-logo">
+                                    <img src="./images/logo_BTU.png" alt="University Logo">
+                                </div>
+                                <div class="education-details">
+                                    <h3 class="degree-title">Master of Science in Computer Engineering with Thesis</h3>
+                                    <p class="institution">Bursa Tecnic University</p>
+                                    <p class="duration">September 2024</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <footer class="py-4">
+        
         <div class="container text-center">
+            
             <ul class="social-icons">
+                <li class="social-icon"><a href="#" class="logo"><span><</span>FA<span>></span></a></li>
                 <li class="social-icon"><a href="https://github.com/FerhatAkalan" target="_blank"><i class="fab fa-github"></i></a></li>
                 <li class="social-icon"><a href="https://www.linkedin.com/in/ferhatakalan" target="_blank"><i class="fab fa-linkedin"></i></a></li>
                 <li class="social-icon"><a href="https://medium.com/@ferhatakalan" target="_blank"><i class="fa-brands fa-medium"></i></a></li>
