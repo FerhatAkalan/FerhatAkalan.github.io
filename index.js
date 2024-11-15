@@ -135,61 +135,67 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
-    // Sağ tık menüsünü devre dışı bırak
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
+    // Temel güvenlik önlemleri
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('dragstart', e => e.preventDefault());
+    
+    // Gelişmiş DevTools tespiti ve engelleme
+    (function() {
+        // Console.log tespiti
+        const checkConsole = () => {
+            const startTime = new Date();
+            debugger;
+            const endTime = new Date();
+            if (endTime - startTime > 100) {
+                window.location.href = 'about:blank';
+            }
+        };
 
-    // Klavye kısayollarını devre dışı bırak
-    document.addEventListener('keydown', function(e) {
-        // F12 tuşunu engelle
-        if (e.key === 'F12') {
-            e.preventDefault();
-            window.location.href = 'about:blank';
-            return false;
-        }
-        
-        // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C kombinasyonlarını engelle
-        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
-            e.preventDefault();
-            window.location.href = 'about:blank';
-            return false;
-        }
+        // Periyodik kontroller
+        setInterval(() => {
+            // Console.clear bypass engelleyici
+            const before = new Date().getTime();
+            debugger;
+            const after = new Date().getTime();
+            if (after - before > 200) {
+                window.location.href = 'about:blank';
+            }
 
-        // Ctrl+U kombinasyonunu engelle
-        if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
-            e.preventDefault();
-            window.location.href = 'about:blank';
-            return false;
-        }
-    });
+            // Ek kontroller
+            checkConsole();
+        }, 1000);
 
-    // Geliştirici araçları açıldığında tespit et ve yönlendir
-    function detectDevTools() {
-        const threshold = 160;
-        const widthThreshold = Math.abs(window.outerWidth - window.innerWidth) > threshold;
-        const heightThreshold = Math.abs(window.outerHeight - window.innerHeight) > threshold;
-        
-        // Mobil cihazlar için ek kontrol
-        const mobileThreshold = 50;
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        const mobileWidthThreshold = isMobile && Math.abs(window.outerWidth - window.innerWidth) > mobileThreshold;
-        const mobileHeightThreshold = isMobile && Math.abs(window.outerHeight - window.innerHeight) > mobileThreshold;
+        // Klavye kısayolları engelleme
+        document.addEventListener('keydown', function(e) {
+            // F12, Ctrl+Shift+I/J/C, Ctrl+U
+            if (
+                e.key === 'F12' ||
+                (e.ctrlKey && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key)) ||
+                (e.ctrlKey && ['U','u','S','s'].includes(e.key)) ||
+                (e.key === 'Escape' && e.keyCode === 27)
+            ) {
+                e.preventDefault();
+                return false;
+            }
+        });
 
-        if (widthThreshold || heightThreshold || mobileWidthThreshold || mobileHeightThreshold) {
-            window.location.href = 'about:blank';
-        }
-    }
+        // Source görüntüleme engelleme
+        document.addEventListener('keypress', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+                return false;
+            }
+        });
 
-    // Geliştirici araçları kontrolü
-    setInterval(detectDevTools, 1000);
+        // Console uyarıları
+        console.clear();
 
-    // Seçim ve sürüklemeyi devre dışı bırak
-    document.addEventListener('selectstart', function(e) {
-        e.preventDefault();
-    });
-
-    document.addEventListener('dragstart', function(e) {
-        e.preventDefault();
-    });
+        // Ek güvenlik: debugger tespiti
+        setInterval(() => {
+            Function.prototype.toString = function() {
+                window.location.href = 'about:blank';
+            };
+        }, 100);
+    })();
 });
