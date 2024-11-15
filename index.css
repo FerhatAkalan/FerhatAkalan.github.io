@@ -277,12 +277,25 @@
   .section-title {
       text-align: center;
       margin-bottom: 40px;
-      font-size: 2em;
       position: relative;
       text-transform: uppercase;
       letter-spacing: 2px;
+      font-size: 2em !important;
+      color: var(--dark-blue);
   }
-  
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: #0c80ed;
+    border-radius: 2px;
+    }
+
   /* Education styles */
   .education-list {
       padding: 20px;
@@ -447,7 +460,7 @@
       color: var(--white);
   }
   
-  .achievements-section .section-title {
+  .achievements-section {
       font-size: 3rem;
       margin-bottom: 50px;
       position: relative;
@@ -455,17 +468,6 @@
       letter-spacing: 2px;
   }
   
-  .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: #fdbb2d;
-      border-radius: 2px;
-  }
   
   .achievements-grid {
       display: grid;
@@ -475,7 +477,7 @@
   }
   
   .achievement-card {
-      background: rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
       backdrop-filter: blur(10px);
       padding: 40px 30px;
       border-radius: 20px;
@@ -485,12 +487,13 @@
       position: relative;
       overflow: hidden;
       animation: fadeInUp 0.6s ease forwards;
+      cursor: pointer;
   }
   
   .achievement-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      background: rgba(255, 255, 255, 0.15);
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
   }
   
   .achievement-card::before {
@@ -528,6 +531,9 @@
       line-height: 1.6;
       margin-bottom: 10px;
   }
+  .achievement-year  {
+    
+  }
   
   .developer-title {
       font-size: 1rem;
@@ -551,7 +557,7 @@
   /* Media Queries */
   @media (max-width: 768px) {
       .section-title {
-          font-size: 2.5rem;
+          font-size: 2rem;
       }
       
       .achievements-grid {
@@ -911,3 +917,27 @@
         height: 35px;
     }
 }
+
+.achievement-year {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white);
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/*.achievement-year:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}*/
+
