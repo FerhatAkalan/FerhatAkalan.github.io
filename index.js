@@ -134,3 +134,53 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Sağ tık menüsünü devre dışı bırak
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // Klavye kısayollarını devre dışı bırak
+    document.addEventListener('keydown', function(e) {
+        // F12 tuşunu engelle
+        if (e.key === 'F12') {
+            e.preventDefault();
+            return false;
+        }
+        
+        // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C kombinasyonlarını engelle
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+U kombinasyonunu engelle
+        if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // Geliştirici araçları açıldığında uyarı ver ve sayfayı yenile
+    function detectDevTools() {
+        const widthThreshold = window.outerWidth - window.innerWidth > 160;
+        const heightThreshold = window.outerHeight - window.innerHeight > 160;
+
+        if (widthThreshold || heightThreshold) {
+            alert('Developer tools are not allowed on this site!');
+            location.reload();
+        }
+    }
+
+    // Geliştirici araçları kontrolü
+    setInterval(detectDevTools, 1000);
+
+    // Seçim ve sürüklemeyi devre dışı bırak
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+    });
+
+    document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+    });
+});
