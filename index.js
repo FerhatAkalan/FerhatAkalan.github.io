@@ -145,30 +145,39 @@ document.addEventListener('DOMContentLoaded', function() {
         // F12 tuşunu engelle
         if (e.key === 'F12') {
             e.preventDefault();
+            window.location.href = 'about:blank';
             return false;
         }
         
         // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C kombinasyonlarını engelle
         if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
             e.preventDefault();
+            window.location.href = 'about:blank';
             return false;
         }
 
         // Ctrl+U kombinasyonunu engelle
         if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
             e.preventDefault();
+            window.location.href = 'about:blank';
             return false;
         }
     });
 
-    // Geliştirici araçları açıldığında uyarı ver ve sayfayı yenile
+    // Geliştirici araçları açıldığında tespit et ve yönlendir
     function detectDevTools() {
-        const widthThreshold = window.outerWidth - window.innerWidth > 160;
-        const heightThreshold = window.outerHeight - window.innerHeight > 160;
+        const threshold = 160;
+        const widthThreshold = Math.abs(window.outerWidth - window.innerWidth) > threshold;
+        const heightThreshold = Math.abs(window.outerHeight - window.innerHeight) > threshold;
+        
+        // Mobil cihazlar için ek kontrol
+        const mobileThreshold = 50;
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const mobileWidthThreshold = isMobile && Math.abs(window.outerWidth - window.innerWidth) > mobileThreshold;
+        const mobileHeightThreshold = isMobile && Math.abs(window.outerHeight - window.innerHeight) > mobileThreshold;
 
-        if (widthThreshold || heightThreshold) {
-            alert('Developer tools are not allowed on this site!');
-            location.reload();
+        if (widthThreshold || heightThreshold || mobileWidthThreshold || mobileHeightThreshold) {
+            window.location.href = 'about:blank';
         }
     }
 
