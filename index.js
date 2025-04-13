@@ -337,6 +337,10 @@ let currentLang = 'en';
 document.addEventListener('DOMContentLoaded', function() {
     const languageToggle = document.getElementById('languageToggle');
     
+    // About içeriğini başlangıç için ekle
+    const aboutSection = document.querySelector('#about .col-md-8');
+    aboutSection.innerHTML = translations.en.aboutContent;
+    
     languageToggle.addEventListener('click', function() {
         currentLang = currentLang === 'en' ? 'tr' : 'en';
         updateContent();
@@ -349,8 +353,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang) {
         currentLang = savedLang;
-        updateContent();
     }
+    
+    // İçeriği güncellemeden önce sayfanın tamamen yüklenmesini bekle
+    setTimeout(() => {
+        updateContent();
+    }, 100);
 });
 
 function updateContent() {
@@ -391,9 +399,10 @@ function updateContent() {
         
         // Sertifika kartı
         if (achievementCards.length > 1) {
-            const certificateCard = achievementCards[1];
-            certificateCard.querySelector('h3').textContent = translations[currentLang].certificateTitle;
-            certificateCard.querySelector('p').textContent = translations[currentLang].certificateDesc;
+            const certificateCard = document.querySelectorAll('.certificate-card')[0];
+            if (certificateCard) {
+                certificateCard.querySelector('h3').textContent = translations[currentLang].certificateTitle;
+            }
         }
     }
 
